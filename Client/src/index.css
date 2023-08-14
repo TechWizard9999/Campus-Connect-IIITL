@@ -12,9 +12,19 @@ body,
   position: absolute;
 top: 10px;
   left: 0;
-  width: 100px;
-  height: 100px;
+ 
   color:black;
   z-index: 2;
   /* background-color: red; */
+}
+.GlobalChat{
+    position: absolute;
+    bottom: 5rem;
+    right: 2rem;
+    z-index: 1;
+    width: 15rem;
+    height: 15rem;
+    background-color: rgba(0, 0, 0, 0.382);
+
+
 }

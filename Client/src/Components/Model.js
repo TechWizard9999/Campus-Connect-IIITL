@@ -54,7 +54,7 @@ export function Model(props) {
 
             state.camera.position.copy(new THREE.Vector3(group.current.position.x, group.current.position.y + 5, group.current.position.z + 6));
             state.camera.lookAt(new THREE.Vector3(group.current.position.x, group.current.position.y + 2, group.current.position.z));
-            state.camera.rotation.copy(group.current.position);
+            // state.camera.rotation.copy(group.current.position);
         }
         // console.log(group.current.position);
         // console.log(props.position);

@@ -29,6 +29,19 @@ characters.push({
         character.position = position;
         io.emit("characters",characters);
      })
+
+     
+    // Send a message to all connected clients
+    socket.on('message', (data) => {
+        console.log(`${socket.id} sent a message to all clients: ${data.message}`);
+
+        io.emit('message', {
+            id: socket.id,
+            message: data.message
+        });
+
+    });
+
     // socket.on("move", (position) => {
     //     const character = characters.find(
     //         (character) => character.id === socket.id

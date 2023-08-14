@@ -6,12 +6,15 @@ import { SocketManager } from './Components/SocketManager'
 import { Environment } from '@react-three/drei'
 import AgoraSetup from './Components/AgoraSetup'
 import Connect from './Components/Connect'
+import GlobalChat from './Components/GlobalChat'
+
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(<>
   <SocketManager/>
   <Connect />
+  <GlobalChat/>
   <Canvas
     camera={{
       fov: 45,
@@ -20,7 +23,7 @@ root.render(<>
       position: [- 4, 10, 9]
     }}
   >
-    {/* <Environment preset='sunset' /> */}
+    <Environment preset='sunset' />
     <Experience />
     {/* <AgoraSetup/> */}
   
