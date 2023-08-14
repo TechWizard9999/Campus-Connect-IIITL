@@ -5,11 +5,13 @@ import Experience from './Experience.js'
 import { SocketManager } from './Components/SocketManager'
 import { Environment } from '@react-three/drei'
 import AgoraSetup from './Components/AgoraSetup'
+import Connect from './Components/Connect'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(<>
   <SocketManager/>
+  <Connect />
   <Canvas
     camera={{
       fov: 45,
@@ -20,7 +22,9 @@ root.render(<>
   >
     {/* <Environment preset='sunset' /> */}
     <Experience />
-    <AgoraSetup/>
+    {/* <AgoraSetup/> */}
+  
   </Canvas>
+
 </>
 )
