@@ -12,6 +12,7 @@ import GlobalChat from './Components/GlobalChat'
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(<>
+  
   <SocketManager/>
   <Connect />
   <GlobalChat/>
@@ -23,7 +24,7 @@ root.render(<>
       position: [- 4, 10, 9]
     }}
   >
-    {/* <Environment preset='sunset' /> */}
+    <Environment preset='city' />
     <Experience />
     {/* <AgoraSetup/> */}
   

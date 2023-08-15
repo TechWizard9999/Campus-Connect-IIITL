@@ -9,6 +9,7 @@ import { useAtom } from 'jotai'
 import {socket} from "./Components/SocketManager"
 import * as THREE from "three"
 import {Physics, RapierRigidBody, RigidBody} from "@react-three/rapier"
+import { Groove } from './Components/Groove'
 
 
 // import Character from './Components/Character'
@@ -78,6 +79,7 @@ const Experience = () => {
 
 
       </mesh>
+      <Groove  />
       {/* <Model/> */}
       {/* <Characxter /> */}
       <primitive object={Character.scene} position={[-3, 0.5, 0]} />
