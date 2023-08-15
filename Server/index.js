@@ -13,7 +13,7 @@ const generateRandomPosition = () => {
 }
 io.listen(3001);
 const characters =[];
-
+const users = [{}];
 io.on("connection", (socket) => {
     console.log("User connected!!")
 characters.push({
@@ -30,17 +30,12 @@ characters.push({
         io.emit("characters",characters);
      })
 
-     
-    // Send a message to all connected clients
-    socket.on('message', (data) => {
-        console.log(`${socket.id} sent a message to all clients: ${data.message}`);
 
-        io.emit('message', {
-            id: socket.id,
-            message: data.message
-        });
+    
 
-    });
+    socket.on('message', ({ message, id }) => {
+        io.emit('sendMessage', { user: users[id], message, id });
+    })
 
     // socket.on("move", (position) => {
     //     const character = characters.find(
@@ -49,6 +44,7 @@ characters.push({
     //     character.position = position;
     //     io.emit("characters", characters);
     // });
+  
 
     socket.on("disconnect", () => {
         console.log("User disconnected!!");

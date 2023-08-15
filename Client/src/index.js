@@ -23,7 +23,7 @@ root.render(<>
       position: [- 4, 10, 9]
     }}
   >
-    <Environment preset='sunset' />
+    {/* <Environment preset='sunset' /> */}
     <Experience />
     {/* <AgoraSetup/> */}
   
