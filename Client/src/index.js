@@ -7,27 +7,28 @@ import { Environment } from '@react-three/drei'
 import AgoraSetup from './Components/AgoraSetup'
 import Connect from './Components/Connect'
 import GlobalChat from './Components/GlobalChat'
-
+import CharacterMenu from './Components/CharacterMenu'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(<>
-  
-  <SocketManager/>
+
+  <SocketManager />
   <Connect />
-  <GlobalChat/>
+  <GlobalChat />
+  <CharacterMenu />
   <Canvas
     camera={{
       fov: 45,
       near: 0.1,
       far: 200,
-      position: [- 4, 10, 9]
+      position: [- 4, 50, 6]
     }}
   >
-    <Environment preset='city' />
+    {/* <Environment preset='city' /> */}
     <Experience />
     {/* <AgoraSetup/> */}
-  
+
   </Canvas>
 
 </>

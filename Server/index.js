@@ -18,7 +18,8 @@ io.on("connection", (socket) => {
     console.log("User connected!!")
 characters.push({
     id: socket.id,
-    position: generateRandomPosition()
+    position: generateRandomPosition(),
+    char:0
 })
     socket.emit("Hello!! ");
     io.emit("characters",characters);
@@ -29,7 +30,12 @@ characters.push({
         character.position = position;
         io.emit("characters",characters);
      })
-
+    socket.on("change", (x) => {
+        const character = characters.find((character) => { return character.id === socket.id });
+        console.log(character);
+        character.char = x;
+        io.emit("characters", characters);
+    })
 
     
 

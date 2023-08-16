@@ -6,7 +6,7 @@ const Message = ({ user, message }) => {
     if (user) {
         return (
             <div className={`messageBox`}  >
-                {`${user}: ${message}`}
+                {`Player 2 : ${message}`}
             </div>
         )
     }

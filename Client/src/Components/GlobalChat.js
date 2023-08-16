@@ -11,6 +11,7 @@ const GlobalChat = () => {
         const message = document.getElementById('chatInput').value;
         socket.emit('message', { message, id });
         document.getElementById('chatInput').value = "";
+console.log(id);
     };
 
     useEffect(() => {
@@ -44,7 +45,7 @@ const GlobalChat = () => {
             </form>
             <ul>
                 {messages.map((item, i) => (
-                    <Message key={i} user={item.id === id ? '' : item.user} message={item.message} />
+                    <Message key={i} user={item.id === id ? '' : id} message={item.message} />
                 ))}
             </ul>
         </div>

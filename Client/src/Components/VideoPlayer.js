@@ -1,6 +1,5 @@
 import React,{useRef,useEffect,useState} from 'react'
 
-
 const VideoPlayer = ({user}) => {
 
     const ref = useRef();

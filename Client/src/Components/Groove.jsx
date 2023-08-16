@@ -5,7 +5,7 @@ License: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 Source: https://sketchfab.com/3d-models/grand-theft-auto-san-andreas-grove-street-4dbdbe00c5cf46d8a2ef220045f58d9b
 Title: Grand theft auto San Andreas | Grove street
 */
-
+import {socket} from './SocketManager'
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
@@ -15,7 +15,7 @@ export function Groove(props) {
   );
   return (
     <group {...props} dispose={null}>
-      <group name="grove_street_0" position={[0,0.5, 0]} scale={1} >
+      <group name="grove_street_0" position={[0, 0.5, 0]} scale={1}>
         <mesh
           name="Object_4"
           castShadow
@@ -29,6 +29,7 @@ export function Groove(props) {
           receiveShadow
           geometry={nodes.Object_5.geometry}
           material={materials.color}
+          // color={"red"}/
         />
         <mesh
           name="Object_6"
@@ -36,6 +37,7 @@ export function Groove(props) {
           receiveShadow
           geometry={nodes.Object_6.geometry}
           material={materials.color}
+          
         />
       </group>
     </group>

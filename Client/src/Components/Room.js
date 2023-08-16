@@ -1,7 +1,10 @@
 import React, { useEffect,useState } from 'react'
 import VideoPlayer from './VideoPlayer';
+
 import AgoraRTC from 'agora-rtc-sdk-ng'
 const APP_ID = 'b8e931b8510943c2a3f94e7f379a7bc9';
+// import { Socket } from 'socket.io-client';
+
 const TOKEN = '007eJxTYDhjWT7nucUmD5393cKp0zSNL6/Psy+ZyePp23Z0Z+6rST8VGJIsUi2NDZMsTA0NLE2Mk40SjdMsTVLN04zNLRPNk5ItAzbfTmkIZGS4OS+PlZEBAkF8VoaMzNzEPAYGAH1pIJ8='
 const CHANNEL = 'himan'
 var client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
@@ -67,7 +70,7 @@ setusers((prevusers)=>[...prevusers, user])
     }, [users])
   return (
       <div style={{ display: 'flex', justifyContent: 'center' }}  >
-
+         
       <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 200px)',

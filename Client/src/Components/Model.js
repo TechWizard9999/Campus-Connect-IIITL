@@ -15,11 +15,11 @@ export function Model(props) {
 
     // try 
     const [characters] = useAtom(charactersAtom);
-    // console.log(characters);
+    console.log(characters);
 
     const character = characters.find((character) => { return character.id === socket.id });
     //    console.log(character);
-    console.log(character);
+    // console.log(character);
 
     //--
     const MOVEMENT_SPEED = 0.02;
@@ -30,7 +30,7 @@ export function Model(props) {
     const { actions } = useAnimations(animations, group);
     const [currentPosition, setCurrentPosition] = useState(position); // Added state for position
 
-    // console.log(actions);
+    console.log(actions);
     const clone = useMemo(() => SkeletonUtils.clone(scene), [scene])
 
     const [animation, setAnimation] = useState("CharacterArmature|Run");
@@ -117,51 +117,10 @@ export function Model(props) {
         };
     }, [currentPosition]);
 
-    // useEffect(() => {
-    //     const handleKeyPress = (event) => {
-    //         console.log(currentPosition);
-    //         // Check if the pressed key is the desired key (e.g., 'W' for forward movement)
-    //         if (event.key === "w" || event.key === "W") {
-    //             const newPosition = currentPosition.clone();
-    //             newPosition.z -= MOVEMENT_SPEED; // Modify the position based on the movement speed
 
-    //             setCurrentPosition(newPosition); // Update the current position state
-    //             socket.emit("move", { newPosition }); // Emit the new position via socket
-    //         } else if (event.key === "s" || event.key === "S") {
-    //             const newPosition = group.current.position.clone();
-    //             newPosition.z += MOVEMENT_SPEED; // Modify the position based on the movement speed
-
-    //             setCurrentPosition(newPosition); // Update the current position state
-    //             socket.emit("move", { newPosition }); // Emit the new position via socket
-
-    //         } else if (event.key === "a" || event.key === "A") {
-    //             const newPosition = currentPosition.clone();
-    //             newPosition.x -= MOVEMENT_SPEED; // Modify the position based on the movement speed
-
-    //             setCurrentPosition(newPosition); // Update the current position state
-    //             socket.emit("move", { newPosition }); // Emit the new position via socket
-
-    //         } else if (event.key === "d" || event.key === "D") {
-    //             const newPosition = currentPosition.clone();
-    //             newPosition.x += MOVEMENT_SPEED; // Modify the position based on the movement speed
-
-    //             setCurrentPosition(newPosition); // Update the current position state
-    //             socket.emit("move", { newPosition }); // Emit the new position via socket
-
-    //         }
-
-    //     };
-
-    //     document.addEventListener("keydown", handleKeyPress);
-
-    //     return () => {
-    //         document.removeEventListener("keydown", handleKeyPress);
-    //     };
-    // }, [currentPosition]);
 
     return (
-        <group ref={group} {...props} position={position} dispose={null}>
-            {/* <RigidBody colliders="hull" type="kinematicPosition" restitution={1} friction={0}    position={curre} > */}
+        <group ref={group} {...props} position={position} dispose={null} >
             <group name="Root_Scene">
                 <group name="RootNode">
                     <group
