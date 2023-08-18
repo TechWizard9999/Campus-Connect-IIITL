@@ -41,7 +41,7 @@ contract TokenGame is Initializable, ERC721Upgradeable {
     function claimTokens() external {
         require(!hasClaimedTokensMap[msg.sender], "Tokens already claimed");
         hasClaimedTokensMap[msg.sender] = true;
-        _mint(msg.sender, tasks.length + 1); 
+        _mint(msg.sender, tasks.length + 1);
     }
 
     function buyTokens() external payable {
