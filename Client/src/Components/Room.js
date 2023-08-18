@@ -10,10 +10,12 @@ const client = AgoraRTC.createClient({ mode: 'rtc', codec: 'vp8' });
 const Room = () => {
     const [users, setUsers] = useState([]);
     const [localTracks, setLocalTracks] = useState([]);
-    let myId=null;
-const [left,setLeft] = useState(false);
+    const [myId, setmyId] = useState(null);
+    const [left, setLeft] = useState(false);
+
     const handleUserPublished = async (user, mediaType) => {
-        myId=user.id;
+        console.log("published");
+        setmyId(user.uid);
         await client.subscribe(user, mediaType);
         if (mediaType === 'video') {
             setUsers((prevUsers) => [...prevUsers, user]);
@@ -28,16 +30,14 @@ const [left,setLeft] = useState(false);
             prevUsers.filter((u) => u.uid !== user.uid)
         );
     };
-
     const Leave = async () => {
-        setLeft(!left);
-
+        setLeft(true); // Indicate that the user has left
         try {
-            // Stop and close local tracks
             for (let localTrack of localTracks) {
                 localTrack.stop();
                 localTrack.close();
             }
+
             // Unsubscribe from remote user tracks
             for (let user of users) {
                 if (user.videoTrack) {
@@ -46,16 +46,28 @@ const [left,setLeft] = useState(false);
                 if (user.audioTrack) {
                     user.audioTrack.stop();
                 }
-                await client.unsubscribe(user);
+                if (user.uid !== myId) {
+                    // Unsubscribe only if the user is not the current user
+                    await client.unsubscribe(user);
+                }
             }
 
             // Leave the channel
             await client.leave();
             console.log('You left the channel');
+
+            // Call handleUserLeft for the current user when leaving the channel
+            handleUserLeft({ uid: myId });
+
+            // Clear the localTracks and users states
+            setLocalTracks([]);
+            setUsers([]);
         } catch (error) {
             console.error('Error leaving channel:', error);
         }
     };
+
+
 
     useEffect(() => {
         client.on('user-published', handleUserPublished);
@@ -66,6 +78,7 @@ const [left,setLeft] = useState(false);
             .then((uid) => Promise.all([AgoraRTC.createMicrophoneAndCameraTracks(), uid]))
             .then(([tracks, uid]) => {
                 const [audioTrack, videoTrack] = tracks;
+                setmyId(uid);
                 setLocalTracks(tracks);
                 setUsers((previousUsers) => [
                     ...previousUsers,
@@ -93,17 +106,22 @@ const [left,setLeft] = useState(false);
             <div>
                 <button onClick={Leave}>Leave</button>
                 {users.map((user, i) => {
-                if( user.uid ===myId){ 
-if(left){
-    return null;
-}else{
-    return <VideoPlayer key={user.uid} player={i} user={user} />
-}
-                }else{
-                    return ( <VideoPlayer key={user.uid} player={i} user={user} /> )
-                 }
-                   
-})}
+                    if (user.uid === myId) {
+                        console.log("uid matched and left is");
+                        console.log(left);
+                        if (left) {
+                            return null;
+                        } else {
+                            return <VideoPlayer key={user.uid} player={i} user={user} />
+                        }
+                    } else {
+                        console.log("uid didn't match and left is");
+                        console.log(user.uid);
+                        console.log(myId);
+                        console.log(left);
+                        return (<VideoPlayer key={user.uid} player={i} user={user} />)
+                    }
+                })}
             </div>
         </div>
     );
