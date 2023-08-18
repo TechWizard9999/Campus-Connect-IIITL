@@ -39,8 +39,8 @@ characters.push({
 
     
 
-    socket.on('message', ({ message, id }) => {
-        io.emit('sendMessage', { user: users[id], message, id });
+    socket.on('message', ({ message, id,name }) => {
+        io.emit('sendMessage', { user: users[id], message, id ,name});
     })
 
     // socket.on("move", (position) => {

@@ -2,23 +2,15 @@ import React from 'react'
 
 
 
-const Message = ({ user, message }) => {
-    if (user) {
-        return (
-            <div className={`messageBox`}  >
-                {`Player 2 : ${message}`}
-            </div>
-        )
-    }
-    else {
-
+const Message = ({ user,name, message }) => {
+  
 
         return (
-            <div className={`messageBox`}>
-                {`You: ${message}`}
+            <div className={`message`}>
+                {`${name}: ${message}`}
             </div>
         )
-    }
+    
 }
 
 export default Message

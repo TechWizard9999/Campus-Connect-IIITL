@@ -33,7 +33,7 @@ const Experience = () => {
   })
 
 
-  const Character = useGLTF("https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/low-poly-spaceship/model.gltf")
+  // const Character = useGLTF("https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/low-poly-spaceship/model.gltf")
   // console.log(Character);
   return (
 
@@ -144,7 +144,7 @@ const Experience = () => {
       } />
       {/* <Model/> */}
       {/* <Characxter /> */}
-      <primitive object={Character.scene} position={[-3, 0.5, 0]} />
+      {/* <primitive object={Character.scene} position={[-3, 0.5, 0]} /> */}
       {/* <mesh position={[0, -1, 0]} >
 
         <boxGeometry args={[10, 0.5, 10]} />

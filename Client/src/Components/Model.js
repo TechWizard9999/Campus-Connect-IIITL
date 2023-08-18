@@ -41,11 +41,7 @@ export function Model(props) {
         return () => { actions[animation]?.fadeOut(0.1) }
 
     }, [animation])
-    // useFrame(()=>{
-    //     if(group.current.position.distanceTo(props.position)>0.01){
-    //         group.current.position
-    //     }
-    // })
+    
     useFrame((state, delta) => {
 
         // colliderRef.current.position = group.current.position;
@@ -96,14 +92,18 @@ export function Model(props) {
             setCurrentPosition(newPosition);
         };
 
-        const handleKeyRelease = () => {
-            // You can reset the animation here when a key is released
-            const newPosition = currentPosition.clone();
-            console.log("release diya" + newPosition)
-            console.log(newPosition)
-            socket.emit("move", [newPosition.x, newPosition.y, newPosition.z]);
-            setCurrentPosition(newPosition);
+        const handleKeyRelease = (event) => {
+            if (event.key.toLowerCase() === "w" || event.key.toLowerCase() === "a" || event.key.toLowerCase() === "s" || event.key.toLowerCase() === "d"){
+                const newPosition = currentPosition.clone();
+                console.log("release diya" + newPosition)
+                console.log(newPosition)
+                socket.emit("move", [newPosition.x, newPosition.y, newPosition.z]);
+                setCurrentPosition(newPosition);
 
+
+            }
+            // You can reset the animation here when a key is released
+       
 
 
         };

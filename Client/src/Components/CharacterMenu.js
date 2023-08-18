@@ -4,15 +4,17 @@ import {socket} from './SocketManager'
 const CharacterMenu = () => {
   const [show, setshow] = useState(false);
   return (
-    <div className='CharacterMenu'  >
-      <h5> Character's Menu </h5>
+    <div className='CharacterMenu' >
+      
       <button onClick={() => {
 
         setshow(!show);
 
         console.log(show);
-      }} > Buy </button>
-
+      }} > {show ? "Close" : "Buy Characters"} </button>   <button onClick={(e) => socket.emit("change")} >
+        Map
+      </button>
+<button>Settings</button>
       {show && (<div className='images' >
         <img src="https://i.pinimg.com/236x/ba/c7/f3/bac7f398439af088efb6f98b97744201.jpg" alt="" width="100px" height="100px"
           onClick={(e) => socket.emit("change", 0)}
