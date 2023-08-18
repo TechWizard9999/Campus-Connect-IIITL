@@ -25,7 +25,7 @@ root.render(<>
       position: [- 4, 50, 6]
     }}
   >
-    {/* <Environment preset='city' /> */}
+    <Environment files={"./belvedere_4k.hdr"}  background={true} />
     <Experience />
     {/* <AgoraSetup/> */}
 
