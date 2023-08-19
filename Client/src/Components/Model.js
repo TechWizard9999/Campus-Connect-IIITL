@@ -120,7 +120,7 @@ export function Model(props) {
 
 
     return (
-        <group ref={group} {...props} position={position} dispose={null} >
+        <group ref={group} {...props} position={position} dispose={null} castShadow  >
             <group name="Root_Scene">
                 <group name="RootNode">
                     <group

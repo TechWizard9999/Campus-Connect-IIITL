@@ -8,6 +8,8 @@ import AgoraSetup from './Components/AgoraSetup'
 import Connect from './Components/Connect'
 import GlobalChat from './Components/GlobalChat'
 import CharacterMenu from './Components/CharacterMenu'
+import Transact from './Components/Transact'
+// import Wallet from './Components/Wallet';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
@@ -16,8 +18,10 @@ root.render(<>
   <SocketManager />
   <Connect />
   <GlobalChat />
+  <Transact/>
   <CharacterMenu />
-  <Canvas
+  {/* <Wallet /> */}
+  <Canvas shadows
     camera={{
       fov: 45,
       near: 0.1,

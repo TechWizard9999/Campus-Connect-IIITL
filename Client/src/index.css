@@ -117,56 +117,144 @@ button:hover {
   font-size: large;
 }
 .input-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .popup-content {
-    background-color: #000;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
+  background-color: #000;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 .retro-title {
-    color: #f7c80d;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 24px;
-    margin-bottom: 10px;
+  color: #f7c80d;
+  font-family: "Press Start 2P", cursive;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .retro-input {
-    padding: 8px;
-    border: 2px solid #f7c80d;
-    background-color: transparent;
-    color: #f7c80d;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 16px;
-    border-radius: 4px;
-    outline: none;
+  padding: 8px;
+  border: 2px solid #f7c80d;
+  background-color: transparent;
+  color: #f7c80d;
+  font-family: "Press Start 2P", cursive;
+  font-size: 16px;
+  border-radius: 4px;
+  outline: none;
 }
 
 .retro-button {
-    background-color: #f7c80d;
-    color: #000;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: #f7c80d;
+  color: #000;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .retro-button:hover {
-    background-color: #e49c0d;
+  background-color: #e49c0d;
+}
+/* App.css */
+.Wallet {
+  position: absolute;
+  bottom: 300px;
+  z-index: 2;
+  left: 10px;
+  z-index: 1;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Wallet-header {
+  background-color: #282c34;
+  padding: 20px;
+  position: relative;
+  bottom: 30vh;
+  left: 30vw;
+  color: white;
+}
+
+.Wallet-main {
+  padding: 20px;
+}
+
+.wallet {
+  position: absolute;
+  bottom: 20px;
+  z-index: 2;
+  left: 40vw;
+  background-color: #ffffff36;
+  padding-inline: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+    height: 4rem;
+
+}
+.wallet > button {
+  pointer-events: visible;
+}
+.wallet-icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.wallet-info {
+  text-align: left;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.completed {
+  color: green;
+  margin-left: 10px;
+}
+
+.completed:before {
+  content: "✅";
+}
+
+.Tasks {
+  z-index: 1;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  bottom: 10px;
+  left: 20px;
+  font-family: sans-serif;
+  font-size: larger;
+}
+.Tasks > form > button{
+  margin-top: 1rem;
+    font-size: large;
+
 }

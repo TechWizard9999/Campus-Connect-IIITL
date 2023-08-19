@@ -14,6 +14,7 @@ import { Wizz } from './Components/Wizz'
 import {Women} from './Components/Women'
 import { Punkboi } from './Components/Punkboi'
 import { Punkgirl } from './Components/Punkgirl'
+import { Cloud } from '@react-three/drei'
 
 
 // import Character from './Components/Character'
@@ -39,8 +40,9 @@ const Experience = () => {
 
     <>
       {/* <Environment preset='sunset'  /> */}
-      <ContactShadows blur={2} />
+      {/* <ContactShadows blur={1} /> */}
       <directionalLight />
+      <ContactShadows opacity={1} scale={10} blur={1} far={10} resolution={256} color="#000000" />
       {/* <Environment preset="forest" /> */}
       <ambientLight intensity={0.2} />
       <Float floatIntensity={2} speed={10} >
@@ -54,6 +56,13 @@ const Experience = () => {
       </Float>
       <OrbitControls />
       <directionalLight />
+      {/* <Cloud
+        opacity={0.5}
+        speed={0.4} // Rotation speed
+        width={10} // Width of the full cloud
+        depth={1.5} // Z-dir depth
+        segments={20} // Number of particles
+      /> */}
       <Physics debug >
         {/* <Model position={[3, 0, 0]} />
       <Model /> */}
@@ -72,7 +81,7 @@ const Experience = () => {
           characters.map((character) => {
 
             if (character.char === 0) {
-              return <Model key={character.id} findme={character.id} position={
+              return <Model key={character.id} findme={character.id}  castShadow position={
                 new THREE.Vector3(
                   character.position[0],
                   character.position[1],
@@ -116,7 +125,7 @@ const Experience = () => {
           )
         }
         <RigidBody type="fixed" restitution={0} friction={1} colliders="hull"  >
-          <mesh rotation-x={-Math.PI / 2} position-y={-0.001} >
+          <mesh rotation-x={-Math.PI / 2} position-y={-0.001} receiveShadow >
             <planeGeometry args={[100, 100]} />
             <meshStandardMaterial color="#f0f0f0" />
           </mesh>
@@ -130,7 +139,7 @@ const Experience = () => {
 
 
       </mesh>
-      <Groove onClick={(e) => {
+      <Groove receiveShadow onClick={(e) => {
         if (e.point.y < 0) {
 
           socket.emit("move", [e.point.x, 0, e.point.z])

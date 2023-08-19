@@ -14,14 +14,21 @@ export function Groove(props) {
     "/grand_theft_auto_san_andreas__grove_street.glb"
   );
   return (
-    <group {...props} dispose={null}>
-      <group name="grove_street_0" position={[0, 0.5, 0]} scale={1}>
+    <group {...props} dispose={null} receiveShadow castShadow>
+      <group
+        name="grove_street_0"
+        position={[0, 0.5, 0]}
+        scale={1}
+        receiveShadow
+        castShadow
+      >
         <mesh
           name="Object_4"
           castShadow
           receiveShadow
           geometry={nodes.Object_4.geometry}
           material={materials.color}
+        
         />
         <mesh
           name="Object_5"
@@ -29,6 +36,7 @@ export function Groove(props) {
           receiveShadow
           geometry={nodes.Object_5.geometry}
           material={materials.color}
+          
           // color={"red"}/
         />
         <mesh
@@ -37,7 +45,6 @@ export function Groove(props) {
           receiveShadow
           geometry={nodes.Object_6.geometry}
           material={materials.color}
-          
         />
       </group>
     </group>
