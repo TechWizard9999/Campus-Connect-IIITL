@@ -64,6 +64,7 @@ export function Model(props) {
             group.current.lookAt(props.position);
             setAnimation("CharacterArmature|Run");
         } else {
+        
             setAnimation("CharacterArmature|Idle");
         }
     });

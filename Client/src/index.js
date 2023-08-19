@@ -21,7 +21,7 @@ root.render(<>
   <Transact/>
   <CharacterMenu />
   {/* <Wallet /> */}
-  <Canvas shadows
+  <Canvas shadows shadowMap
     camera={{
       fov: 45,
       near: 0.1,

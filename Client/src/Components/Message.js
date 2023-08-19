@@ -7,7 +7,7 @@ const Message = ({ user,name, message }) => {
 
         return (
             <div className={`message`}>
-                {`${name}: ${message}`}
+                {`  ${name}: ${message}`}
             </div>
         )
     

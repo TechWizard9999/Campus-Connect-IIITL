@@ -14,7 +14,9 @@ import { Wizz } from './Components/Wizz'
 import {Women} from './Components/Women'
 import { Punkboi } from './Components/Punkboi'
 import { Punkgirl } from './Components/Punkgirl'
+import { City } from './Components/City'
 import { Cloud } from '@react-three/drei'
+import { Hooded } from './Components/Hooded'
 
 
 // import Character from './Components/Character'
@@ -41,10 +43,21 @@ const Experience = () => {
     <>
       {/* <Environment preset='sunset'  /> */}
       {/* <ContactShadows blur={1} /> */}
-      <directionalLight />
+      {/* <directionalLight
+        position={[5, 10, 5]}
+        intensity={1}
+        castShadow
+        shadow-mapSize-width={1024}
+        shadow-mapSize-height={1024}
+        shadow-camera-left={-5}
+        shadow-camera-right={5}
+        shadow-camera-top={5}
+        shadow-camera-bottom={-5}
+      /> */}
+
       <ContactShadows opacity={1} scale={10} blur={1} far={10} resolution={256} color="#000000" />
       {/* <Environment preset="forest" /> */}
-      <ambientLight intensity={0.2} />
+      <ambientLight intensity={1} />
       <Float floatIntensity={2} speed={10} >
 
         <Text color={"grey"} position={[1, 3, 1]} >
@@ -120,16 +133,24 @@ const Experience = () => {
                   character.position[2]
                 )
               } />
+            } else if (character.char === 5) {
+              return <Hooded key={character.id} findme={character.id} position={
+                new THREE.Vector3(
+                  character.position[0],
+                  character.position[1],
+                  character.position[2]
+                )
+              } />
             }
           }
           )
         }
-        <RigidBody type="fixed" restitution={0} friction={1} colliders="hull"  >
+        {/* <RigidBody type="fixed" restitution={0} friction={1} colliders="hull"  >
           <mesh rotation-x={-Math.PI / 2} position-y={-0.001} receiveShadow >
             <planeGeometry args={[100, 100]} />
             <meshStandardMaterial color="#f0f0f0" />
           </mesh>
-        </RigidBody>
+        </RigidBody> */}
       </Physics>
       <mesh>
         <boxGeometry args={[1, 1, 1]} />

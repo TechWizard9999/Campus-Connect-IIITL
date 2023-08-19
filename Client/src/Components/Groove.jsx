@@ -17,7 +17,7 @@ export function Groove(props) {
     <group {...props} dispose={null} receiveShadow castShadow>
       <group
         name="grove_street_0"
-        position={[0, 0.5, 0]}
+        position={[+10, 0.5, 0]}
         scale={1}
         receiveShadow
         castShadow
