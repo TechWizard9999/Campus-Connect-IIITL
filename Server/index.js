@@ -42,6 +42,11 @@ characters.push({
     socket.on('message', ({ message, id,name }) => {
         io.emit('sendMessage', { user: users[id], message, id ,name});
     })
+    socket.on('challenge', ({ id,info }) => {
+        io.emit('sendChallenge', { id,info});
+    })
+
+
 
     // socket.on("move", (position) => {
     //     const character = characters.find(

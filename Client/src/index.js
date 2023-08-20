@@ -9,6 +9,8 @@ import Connect from './Components/Connect'
 import GlobalChat from './Components/GlobalChat'
 import CharacterMenu from './Components/CharacterMenu'
 import Transact from './Components/Transact'
+import ContractMenu from './Components/ContractMenu'
+import Sidebar from './Components/Sidebar'
 // import Wallet from './Components/Wallet';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
@@ -19,7 +21,9 @@ root.render(<>
   <Connect />
   <GlobalChat />
   <Transact/>
-  <CharacterMenu />
+  {/* <CharacterMenu /> */}
+  {/* <ContractMenu /> */}
+  {/* <Sidebar/> */}
   {/* <Wallet /> */}
   <Canvas shadows shadowMap
     camera={{

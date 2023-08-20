@@ -3,7 +3,7 @@ import VideoPlayer from './VideoPlayer';
 import AgoraRTC from 'agora-rtc-sdk-ng';
 
 const APP_ID = 'b8e931b8510943c2a3f94e7f379a7bc9';
-const TOKEN = '007eJxTYPjxacvff6xsd+VYyk49fKAg4uT/3cB1l1Cjk15Iqq3CXy4FhiSLVEtjwyQLU0MDSxPjZKNE4zRLk1TzNGNzy0TzpGRLjrB7KQ2BjAy29oLMjAwQCOKzMmRk5ibmMTAAABpNHX0=';
+const TOKEN = '007eJxTYJi+9J2+yY49NlNbHY6nXvY23CrQNm9bTH+IOYvwrdJdv5QVGJIsUi2NDZMsTA0NLE2Mk40SjdMsTVLN04zNLRPNk5ItN3x8mNIQyMigYbCfmZEBAkF8VoaMzNzEPAYGAG5xIAI=';
 const CHANNEL = 'himan';
 const client = AgoraRTC.createClient({ mode: 'rtc', codec: 'vp8' });
 
